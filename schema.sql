@@ -13,8 +13,7 @@ CREATE extension pgcrypto;
 -- Events table
 CREATE TABLE tba21.imagesmetadata
 (
-  id bigserial PRIMARY KEY,
-  decodedSrcKey varchar,
+  decodedSrcKey varchar  PRIMARY KEY,
   created_at timestamp with time zone NOT NULL,
   updated_at timestamp with time zone NOT NULL,
   metadata jsonb NOT NULL
