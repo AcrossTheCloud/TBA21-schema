@@ -10,10 +10,10 @@ CREATE EXTENSION postgis_topology;
 -- Cryptographic support
 CREATE extension pgcrypto;
 
--- Events table
+-- Images Metadata table
 CREATE TABLE tba21.imagesmetadata
 (
-  decodedSrcKey varchar  PRIMARY KEY,
+  decodedSrcKey varchar PRIMARY KEY,
   created_at timestamp with time zone NOT NULL,
   updated_at timestamp with time zone NOT NULL,
   metadata jsonb NOT NULL
