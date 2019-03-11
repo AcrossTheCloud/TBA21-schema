@@ -22,4 +22,4 @@ CREATE TABLE tba21.imagesmetadata
 
 -- Events geometry
 SELECT AddGeometryColumn ('tba21','imagesmetadata','the_geom',4326,'POINT',2);
-ALTER TABLE tba21.imagesmetadata ALTER COLUMN the_geom SET NOT NULL;
+-- ALTER TABLE tba21.imagesmetadata ALTER COLUMN the_geom SET NOT NULL;
