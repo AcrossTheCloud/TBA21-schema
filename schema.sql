@@ -13,7 +13,8 @@ CREATE extension pgcrypto;
 -- Images Metadata table
 CREATE TABLE tba21.imagesmetadata
 (
-  decodedSrcKey varchar PRIMARY KEY,
+  sha512 varchar(128) PRIMARY KEY,
+  decodedSrcKey varchar,
   created_at timestamp with time zone NOT NULL,
   updated_at timestamp with time zone NOT NULL,
   metadata jsonb NOT NULL
