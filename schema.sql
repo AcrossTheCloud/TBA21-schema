@@ -1,4 +1,4 @@
-/* Schema for TBA21 image/video */
+/* Schema for TBA21 items */
 
 -- Schema name
 CREATE SCHEMA tba21;
@@ -10,8 +10,8 @@ CREATE EXTENSION postgis_topology;
 -- Cryptographic support
 CREATE extension pgcrypto;
 
--- Images Metadata table
-CREATE TABLE tba21.imagesmetadata
+-- Items metadata table
+CREATE TABLE tba21.itemsmetadata
 (
   sha512 varchar(128) PRIMARY KEY,
   decodedSrcKey varchar,
@@ -21,5 +21,5 @@ CREATE TABLE tba21.imagesmetadata
 );
 
 -- Events geometry
-SELECT AddGeometryColumn ('tba21','imagesmetadata','the_geom',4326,'POINT',2);
--- ALTER TABLE tba21.imagesmetadata ALTER COLUMN the_geom SET NOT NULL;
+SELECT AddGeometryColumn ('tba21','itemsmetadata','the_geom',4326,'POINT',2);
+-- ALTER TABLE tba21.itemsmetadata ALTER COLUMN the_geom SET NOT NULL;
