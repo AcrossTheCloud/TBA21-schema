@@ -116,6 +116,6 @@ SELECT AddGeometryColumn ('tba21','items','the_geom',4326,'POINT',2);
 --Collections and collections_items joins
 SELECT tba21.collections_items.ID, tba21.collections.ID FROM tba21.collections_items INNER JOIN tba21.collections ON tba21.collections_items.ID = tba21.collections.ID;
 
--- People and collections joins
-SELECT tba21.collections_people.ID, tba21.tba21.people.ID FROM tba21.collections_people INNER JOIN tba21.tba21.people ON tba21.collections_people.ID = tba21.people.ID;
-SELECT tba21.collections_people.sha512, tba21.items.sha512 FROM tba21.collections_people INNER JOIN tba21.items ON tba21.collections_people.sha512 = tba21.items.sha512;
+-- People and collections example joins
+-- SELECT tba21.collections_people.ID, tba21.tba21.people.ID FROM tba21.collections_people INNER JOIN tba21.tba21.people ON tba21.collections_people.ID = tba21.people.ID;
+-- SELECT tba21.collections_people.sha512, tba21.items.sha512 FROM tba21.collections_people INNER JOIN tba21.items ON tba21.collections_people.sha512 = tba21.items.sha512;
