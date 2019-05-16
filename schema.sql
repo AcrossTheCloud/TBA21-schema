@@ -31,6 +31,7 @@ CREATE TABLE tba21.items
 	concept_tags bigserial,
 	keyword_tags bigserial,
 	recognition_tags varchar(128),
+	location geography(point),
 	place varchar(128),
 	country_or_ocean varchar(128),
 	creators bigserial,
@@ -78,7 +79,7 @@ CREATE TABLE tba21.collections
 	title varchar(128),
 	description varchar,
 	image varchar,
-	the_geom geometry(Linestring,4326)
+	location geography(linestring)
 );
 
 --Collection items metadata
@@ -108,10 +109,6 @@ CREATE TABLE tba21.keyword_tags
 	ID bigserial,
 	tag varchar(128)
 );
-
--- Events geometry
-SELECT AddGeometryColumn ('tba21','items','the_geom',4326,'POINT',2);
--- ALTER TABLE tba21.itemsmetadata ALTER COLUMN the_geom SET NOT NULL;
 
 --Collections and collections_items joins
 SELECT tba21.collections_items.ID, tba21.collections.ID FROM tba21.collections_items INNER JOIN tba21.collections ON tba21.collections_items.ID = tba21.collections.ID;
