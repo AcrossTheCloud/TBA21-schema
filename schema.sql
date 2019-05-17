@@ -28,6 +28,7 @@ CREATE TABLE tba21.items
 	created_at timestamp with time zone NOT NULL,
 	updated_at timestamp with time zone NOT NULL,
 	time_produced timestamp with time zone,
+	status boolean,
 	concept_tags bigserial,
 	keyword_tags bigserial,
 	recognition_tags varchar(128),
@@ -75,11 +76,31 @@ CREATE TABLE tba21.types
 --Collections metadata
 CREATE TABLE tba21.collections
 (
-	ID bigserial,
-	title varchar(128),
-	description varchar,
-	image varchar,
-	location geography(linestring)
+	id bigserial PRIMARY KEY,
+	decodedSrcKey varchar,
+	created_at timestamp with time zone NOT NULL,
+	updated_at timestamp with time zone NOT NULL,
+	time_produced timestamp with time zone,
+	status boolean,
+	concept_tags bigserial,
+	keyword_tags bigserial,
+	recognition_tags varchar(128),
+	location geography(linestring),
+	place varchar(128),
+	country_or_ocean varchar(128),
+	creators bigserial,
+	contributor_login uuid,
+	directors varchar(256)[],
+	writers varchar(256)[],
+	collaborators varchar(256),
+	exhibited_at varchar(256),
+	series varchar(256),
+	ISBN numeric(13),
+	edition numeric(3),
+	publisher varchar(256)[],
+	interviewers varchar(256)[],
+	interviewees varchar(256)[],
+	cast_ varchar(256)
 );
 
 --Collection items metadata
