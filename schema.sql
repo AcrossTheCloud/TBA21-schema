@@ -69,7 +69,7 @@ CREATE TABLE tba21.people
 --Types metadata
 CREATE TABLE tba21.types
 (
-	ID bigserial,
+	ID bigserial, 
 	type_name varchar(256)
 );
 
@@ -77,7 +77,7 @@ CREATE TABLE tba21.types
 CREATE TABLE tba21.collections
 (
 	id bigserial PRIMARY KEY,
-	decodedSrcKey varchar,
+	decodedSrcKey varchar, -- Is this S3 prefix (ie folder) ? Means we are assuming all collection items have a single prefix/folder ? 
 	created_at timestamp with time zone NOT NULL,
 	updated_at timestamp with time zone NOT NULL,
 	time_produced timestamp with time zone,
@@ -104,17 +104,17 @@ CREATE TABLE tba21.collections
 );
 
 --Collection items metadata
-CREATE TABLE tba21.collections_items
+CREATE TABLE tba21.collections_items --need foreign key referencing ? 
 (
-	ID bigserial,
+	ID bigserial, 
 	sha512 varchar(128)
 );
 
 --Collection people metadata
-CREATE TABLE tba21.collections_people
+CREATE TABLE tba21.collections_people --need foreign key referencing ? 
 (
-	ID bigserial,
-	sha512 varchar(128)
+	ID bigserial, --we mean collection id ? 
+	sha512 varchar(128) -- why is sha512 here ? this table should connect collection and people table ...
 );
 
 --Concept tags metadata
