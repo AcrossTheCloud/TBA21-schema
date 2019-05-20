@@ -30,12 +30,12 @@ CREATE TABLE tba21.items
 	time_produced timestamp with time zone,
 	status boolean,
 	exif jsonb, -- for things that don't go into other columns
-	concept_tags bigserial,
-	keyword_tags bigserial,
+	concept_tags bigint,
+	keyword_tags bigint,
 	recognition_tags varchar(128),
 	place varchar(128),
 	country_or_ocean varchar(128),
-	creators bigserial,
+	creators varchar(256)[],
 	contributor_login uuid,
 	directors varchar(256)[],
 	writers varchar(256)[],
@@ -53,7 +53,7 @@ CREATE TABLE tba21.items
 --Types metadata
 CREATE TABLE tba21.types
 (
-	ID bigserial, 
+	ID bigserial PRIMARY KEY, 
 	type_name varchar(256)
 );
 
@@ -66,12 +66,12 @@ CREATE TABLE tba21.collections
 	updated_at timestamp with time zone NOT NULL,
 	time_produced timestamp with time zone,
 	status boolean,
-	concept_tags bigserial,
-	keyword_tags bigserial,
+	concept_tags bigint,
+	keyword_tags bigint,
 	recognition_tags varchar(128),
 	place varchar(128),
 	country_or_ocean varchar(128),
-	creators bigserial,
+	creators varchar(256)[],
 	contributor_login uuid,
 	directors varchar(256)[],
 	writers varchar(256)[],
