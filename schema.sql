@@ -86,7 +86,11 @@ CREATE TABLE tba21.collections
 );
 
 -- Geo stuff
+SELECT AddGeometryColumn ('tba21','items','location',4326,'POINT',2); -- items location column
+CREATE INDEX items_gix ON tba21.items USING GIST (location); -- items location GIST index
 
+SELECT AddGeometryColumn ('tba21','collections','geom',4326,'LINESTRING',2); -- collections geom column
+CREATE INDEX items_gix ON tba21.collections USING GIST (location); -- collections geom GIST index
 
 -- Collection items metadata
 CREATE TABLE tba21.collections_items 
