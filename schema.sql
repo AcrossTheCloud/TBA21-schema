@@ -23,8 +23,8 @@ CREATE TYPE tba21.gender AS ENUM ('male', 'female', 'other');
 -- Items metadata table
 CREATE TABLE tba21.items
 (
-	sha512 varchar(128) PRIMARY KEY,
-	decodedSrcKey varchar,
+	sha512 varchar(128),
+	decodedSrcKey varchar PRIMARY KEY,
 	created_at timestamp with time zone NOT NULL,
 	updated_at timestamp with time zone NOT NULL,
 	time_produced timestamp with time zone,
@@ -104,10 +104,10 @@ CREATE TABLE tba21.collections
 );
 
 --Collection items metadata
-CREATE TABLE tba21.collections_items --need foreign key referencing ? 
+CREATE TABLE tba21.collections_items 
 (
-	ID bigserial, 
-	sha512 varchar(128)
+	ID bigserial references collections(id),
+	sha512 varchar(128) references items(id)
 );
 
 --Concept tags metadata
