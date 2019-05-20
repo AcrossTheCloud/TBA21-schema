@@ -110,13 +110,6 @@ CREATE TABLE tba21.collections_items --need foreign key referencing ?
 	sha512 varchar(128)
 );
 
---Collection people metadata
-CREATE TABLE tba21.collections_people --need foreign key referencing ? 
-(
-	ID bigserial, --we mean collection id ? 
-	sha512 varchar(128) -- why is sha512 here ? this table should connect collection and people table ...
-);
-
 --Concept tags metadata
 CREATE TABLE tba21.concept_tags
 (
