@@ -67,7 +67,7 @@ CREATE TABLE tba21.collections
 	status boolean,
 	concept_tags bigserial,
 	keyword_tags bigserial,
-	recognition_tags varchar(128)
+	recognition_tags varchar(128),
 	place varchar(128),
 	country_or_ocean varchar(128),
 	creators bigserial,
