@@ -92,7 +92,7 @@ CREATE INDEX items_gix ON tba21.items USING GIST (location); -- items location G
 SELECT AddGeometryColumn ('tba21','collections','geom',4326,'LINESTRING',2); -- collections geom column
 CREATE INDEX items_gix ON tba21.collections USING GIST (location); -- collections geom GIST index
 
--- Collection items metadata
+-- Collection items cross-references
 CREATE TABLE tba21.collections_items 
 (
 	ID bigserial references collections(id),
