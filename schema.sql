@@ -20,7 +20,7 @@ CREATE TYPE tba21.licence_type AS ENUM ('CC BY', 'CC BY-SA', 'CC BY-ND', 'CC BY-
 --Create gender type
 CREATE TYPE tba21.gender AS ENUM ('male', 'female', 'other');
 
--- Items metadata table
+-- S3 objects metadata table
 CREATE TABLE tba21.s3uploads
 (
 	sha512 varchar(128) PRIMARY KEY,
