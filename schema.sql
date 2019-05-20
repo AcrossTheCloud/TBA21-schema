@@ -35,6 +35,7 @@ CREATE TABLE tba21.items
 	recognition_tags varchar(128),
 	place varchar(128),
 	country_or_ocean varchar(128),
+	type bigserial references types(id),
 	creators varchar(256)[],
 	contributor_login uuid,
 	directors varchar(256)[],
@@ -47,13 +48,14 @@ CREATE TABLE tba21.items
 	publisher varchar(256)[],
 	interviewers varchar(256)[],
 	interviewees varchar(256)[],
-	cast_ varchar(256)
+	cast_ varchar(256),
+	license tba21.licence_type
 );
 
 --Types metadata
 CREATE TABLE tba21.types
 (
-	ID bigserial PRIMARY KEY, 
+	ID bigserial PRIMARY KEY,
 	type_name varchar(256)
 );
 
@@ -94,7 +96,7 @@ SELECT AddGeometryColumn ('tba21','collections','geom',4326,'LINESTRING',2); -- 
 CREATE INDEX items_gix ON tba21.collections USING GIST (location); -- collections geom GIST index
 
 -- Collection items cross-references
-CREATE TABLE tba21.collections_items 
+CREATE TABLE tba21.collections_items
 (
 	ID bigint references collections(id),
 	sha512 varchar(128) references items(id)
