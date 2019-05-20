@@ -47,7 +47,7 @@ CREATE TABLE tba21.items
 	recognition_tags varchar[],
 	place varchar(128),
 	country_or_ocean varchar(128),
-	type bigserial references types(id),
+	type bigint references types(id),
 	creators varchar(256)[],
 	contributor_login uuid,
 	directors varchar(256)[],
