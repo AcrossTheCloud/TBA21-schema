@@ -24,7 +24,7 @@ CREATE TYPE tba21.gender AS ENUM ('male', 'female', 'other');
 CREATE TABLE tba21.items
 (
 	sha512 varchar(128),
-	decodedSrcKey varchar PRIMARY KEY,
+	s3Key varchar PRIMARY KEY,
 	created_at timestamp with time zone NOT NULL,
 	updated_at timestamp with time zone NOT NULL,
 	time_produced timestamp with time zone,
@@ -32,7 +32,6 @@ CREATE TABLE tba21.items
 	concept_tags bigserial,
 	keyword_tags bigserial,
 	recognition_tags varchar(128),
-	location geography(point),
 	place varchar(128),
 	country_or_ocean varchar(128),
 	creators bigserial,
@@ -48,22 +47,6 @@ CREATE TABLE tba21.items
 	interviewers varchar(256)[],
 	interviewees varchar(256)[],
 	cast_ varchar(256)
-);
-
---People metadata table
-CREATE TABLE tba21.people
-(
-	ID bigserial,
-	family_name varchar(128),
-	given_names varchar(128),
-	organisation varchar(128),
-	gender tba21.gender NOT NULL,
-	date_of_birth timestamp with time zone NOT NULL,
-	email varchar(256),
-	affiliation varchar(128),
-	job_role varchar(128),
-	website varchar(128),
-	address varchar(128)
 );
 
 --Types metadata
@@ -77,15 +60,14 @@ CREATE TABLE tba21.types
 CREATE TABLE tba21.collections
 (
 	id bigserial PRIMARY KEY,
-	decodedSrcKey varchar, -- Is this S3 prefix (ie folder) ? Means we are assuming all collection items have a single prefix/folder ? 
+	s3Prefix varchar,
 	created_at timestamp with time zone NOT NULL,
 	updated_at timestamp with time zone NOT NULL,
 	time_produced timestamp with time zone,
 	status boolean,
 	concept_tags bigserial,
 	keyword_tags bigserial,
-	recognition_tags varchar(128),
-	location geography(linestring),
+	recognition_tags varchar(128)
 	place varchar(128),
 	country_or_ocean varchar(128),
 	creators bigserial,
@@ -103,7 +85,10 @@ CREATE TABLE tba21.collections
 	cast_ varchar(256)
 );
 
---Collection items metadata
+-- Geo stuff
+
+
+-- Collection items metadata
 CREATE TABLE tba21.collections_items 
 (
 	ID bigserial references collections(id),
