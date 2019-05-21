@@ -31,11 +31,18 @@ CREATE TABLE tba21.s3uploads
 	image_hash varchar(64)
 );
 
+--Types metadata
+CREATE TABLE tba21.types
+(
+	ID bigserial PRIMARY KEY,
+	type_name varchar(256)
+);
+
 -- Items metadata table
 CREATE TABLE tba21.items
 (
 	ID bigserial PRIMARY KEY,
-	s3uploads_sha512 varchar(128)  references s3uploads(sha512),
+	s3uploads_sha512 varchar(128) references tba21.s3uploads(sha512),
 	s3_key varchar , --s3 key, if any, associated to this particular item
 	created_at timestamp with time zone NOT NULL,
 	updated_at timestamp with time zone NOT NULL,
@@ -46,7 +53,7 @@ CREATE TABLE tba21.items
 	recognition_tags varchar[],
 	place varchar(128),
 	country_or_ocean varchar(128),
-	type bigint references types(id),
+	item_type bigint references tba21.types(id),
 	creators varchar(256)[],
 	contributor_login uuid,
 	directors varchar(256)[],
@@ -63,13 +70,6 @@ CREATE TABLE tba21.items
 	license tba21.licence_type,
 	title varchar(256),
 	description varchar(256)
-);
-
---Types metadata
-CREATE TABLE tba21.types
-(
-	ID bigserial PRIMARY KEY,
-	type_name varchar(256)
 );
 
 --Collections metadata
@@ -117,8 +117,8 @@ CREATE INDEX collections_gix ON tba21.collections USING GIST (geom); -- collecti
 -- Collection items cross-references
 CREATE TABLE tba21.collections_items
 (
-	collection_ID bigint references collections(ID),
-	item_ID bigint references items(ID)
+	collection_ID bigint references tba21.collections(ID),
+	item_ID bigint references tba21.items(ID)
 );
 
 --Concept tags metadata
@@ -134,10 +134,3 @@ CREATE TABLE tba21.keyword_tags
 	ID bigserial PRIMARY KEY,
 	tag varchar(128)
 );
-
---Collections and collections_items joins
-SELECT tba21.collections_items.ID, tba21.collections.ID FROM tba21.collections_items INNER JOIN tba21.collections ON tba21.collections_items.ID = tba21.collections.ID;
-
--- People and collections example joins
--- SELECT tba21.collections_people.ID, tba21.tba21.people.ID FROM tba21.collections_people INNER JOIN tba21.tba21.people ON tba21.collections_people.ID = tba21.people.ID;
--- SELECT tba21.collections_people.sha512, tba21.items.sha512 FROM tba21.collections_people INNER JOIN tba21.items ON tba21.collections_people.sha512 = tba21.items.sha512;
