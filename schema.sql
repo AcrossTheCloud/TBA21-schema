@@ -5,8 +5,6 @@
 CREATE SCHEMA tba21
 AUTHORIZATION postgres;
 
-CREATE EXTENSION plpgsql;
-
 -- Geospatial support
 CREATE EXTENSION postgis;
 CREATE EXTENSION postgis_topology;
