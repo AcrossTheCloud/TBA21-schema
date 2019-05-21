@@ -29,7 +29,7 @@ CREATE TABLE tba21.s3uploads
 	updated_at timestamp with time zone NOT NULL,
     exif jsonb, -- for things that don't go into other columns
 	machine_recognition_tags varchar[],
-	other_metadata jsonb -- anything else like image-hash etc ? could decompose them here too 
+	md5_hash varchar(32)
 );
 
 -- Items metadata table
