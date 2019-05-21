@@ -30,7 +30,7 @@ CREATE TABLE tba21.s3uploads
     exif jsonb, -- for things that don't go into other columns
 	machine_recognition_tags varchar[],
 	md5_hash varchar(32),
-	image_hash varchar
+	image_hash varchar(64)
 );
 
 -- Items metadata table
