@@ -1,0 +1,20 @@
+version: 2
+jobs:
+  build:
+  
+    docker:    
+      - image: circleci/node:lts
+        environment:
+          TEST_DATABASE_URL: postgresql://postgres@localhost/circle_test
+      - image: circleci/postgres:11-alpine-postgis-ram
+
+    steps:
+      - checkout
+      - run: curl https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+      - run: echo "deb http://apt.postgresql.org/pub/repos/apt/ stretch-pgdg main" | sudo tee  /etc/apt/sources.list.d/pgdg.list
+      - run: sudo apt update
+      - run: sudo apt -y upgrade
+      - run: sudo apt -y install postgresql-client
+      - run:
+          name: test
+          command: psql -d $TEST_DATABASE_URL -f schema.sql
