@@ -35,7 +35,7 @@ CREATE TABLE tba21.types
 CREATE TABLE tba21.items
 (
 	ID bigserial PRIMARY KEY,
-	s3uploads_sha512 varchar(128) references tba21.s3uploads(sha512),
+	s3uploads_sha512 varchar(128) references tba21.s3uploads(ID_sha512),
 	s3_key varchar(1024), --s3 key, if any, associated to this particular item
 	created_at timestamp with time zone NOT NULL,
 	updated_at timestamp with time zone NOT NULL,
