@@ -90,7 +90,7 @@ CREATE TABLE tba21.collections
 	interviewers varchar(256)[],
 	interviewees varchar(256)[],
 	cast_ varchar(256),
-    title varchar(256),
+	title varchar(256),
 	description varchar(256)
 );
 
