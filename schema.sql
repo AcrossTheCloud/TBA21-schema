@@ -62,6 +62,7 @@ CREATE TABLE tba21.items
 	license tba21.licence_type,
 	title varchar(256),
 	description varchar(256)
+	map_icon varchar(256)
 );
 
 --Collections metadata
