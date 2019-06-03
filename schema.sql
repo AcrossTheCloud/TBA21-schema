@@ -61,7 +61,7 @@ CREATE TABLE tba21.items
 	cast_ varchar(256),
 	license tba21.licence_type,
 	title varchar(256),
-	description varchar(256)
+	description varchar(256),
 	map_icon varchar(256)
 );
 
