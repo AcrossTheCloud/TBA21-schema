@@ -62,7 +62,7 @@ CREATE TABLE tba21.items
 	license tba21.licence_type,
 	title varchar(256),
 	description varchar(256),
-	map_icon varchar(256)
+	map_icon varchar(1024) -- path to s3 object
 );
 
 --Collections metadata
@@ -128,6 +128,6 @@ CREATE TABLE tba21.keyword_tags
 );
 
 
---Updates to schema 
+--Updates to schema
 ALTER TABLE tba21.s3uploads DROP COLUMN machine_recognition_tags RESTRICT;
 ALTER TABLE tba21.s3uploads ADD COLUMN machine_recognition_tags jsonb;
