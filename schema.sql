@@ -126,3 +126,8 @@ CREATE TABLE tba21.keyword_tags
 	ID bigserial PRIMARY KEY,
 	tag_name varchar(128)
 );
+
+
+--Updates to schema 
+ALTER TABLE tba21.s3uploads DROP COLUMN machine_recognition_tags RESTRICT;
+ALTER TABLE tba21.s3uploads ADD COLUMN machine_recognition_tags jsonb;
