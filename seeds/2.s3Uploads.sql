@@ -7,18 +7,27 @@ VALUES (
   '2011-07-01 06:30:30+05',
   '2011-07-01 06:30:30+05',
   '{"exif":123}',
-  '{"rekognition_labels": [ { "Name": "Ground",
-    "Confidence": 99.99285888671875,
-    "Instances": [],
-    "Parents": [] },
-    { "Name": "Road",
-    "Confidence": 99.86767578125,
-    "Instances": [],
-    "Parents": [] },
-    { "Name": "Tarmac",
-    "Confidence": 80.00676727294922,
-    "Instances": [],
-    "Parents": [] } ]}',
+  '{
+   	"rekognition_labels": [{
+   			"Name": "Ground",
+   			"Confidence": 99.99285888671875,
+   			"Instances": [],
+   			"Parents": []
+   		},
+   		{
+   			"Name": "Road",
+   			"Confidence": 99.86767578125,
+   			"Instances": [],
+   			"Parents": []
+   		},
+   		{
+   			"Name": "Tarmac",
+   			"Confidence": 80.00676727294922,
+   			"Instances": [],
+   			"Parents": []
+   		}
+   	]
+   }',
   'LIK8T8LXAW47YF794T716STH2EZR4DPK',
   'V5RWEAJ2K6DYIULX5GAXUNFXRCW0DZ3GUO3FA9B7Z99QRAVO17EVTGNXYXK1FSZU',
   ST_GeomFromText('POINT(-34.4039714 150.872565)', 4326)
@@ -28,18 +37,24 @@ VALUES (
   '2011-07-01 06:30:30+05',
   '2011-07-01 06:30:30+05',
   '{"exif":321}',
-    '{"rekognition_labels": [ { "Name": "Ground",
-    "Confidence": 99.99285888671875,
-    "Instances": [],
-    "Parents": [] },
-    { "Name": "Road",
-    "Confidence": 99.86767578125,
-    "Instances": [],
-    "Parents": [] },
-    { "Name": "Tarmac",
-    "Confidence": 80.00676727294922,
-    "Instances": [],
-    "Parents": [] } ]}' ,
+  '{
+  	"rekognition_labels": [{
+  		"Name": "Ground",
+  		"Confidence": 99.99285888671875,
+  		"Instances": [],
+  		"Parents": []
+  	}, {
+  		"Name": "Road",
+  		"Confidence": 99.86767578125,
+  		"Instances": [],
+  		"Parents": []
+  	}, {
+  		"Name": "Tarmac",
+  		"Confidence": 80.00676727294922,
+  		"Instances": [],
+  		"Parents": []
+  	}]
+  }',
   'CNOROXYE3ND4ANXI3598C11B9H2QQ2NR',
   'F1UNG3S6YM6DD0KP7XFHP7UKDPOIHER8JAXYGHWCJS5T2I2NM0FRZXQ6LG5RTC5P',
   ST_GeomFromText('POINT(-34.4708186 151.2997360)', 4326)
@@ -71,18 +86,27 @@ VALUES (
   '2011-07-01 06:30:30+05',
   '2011-07-01 06:30:30+05',
   '{"exif":156}',
-    '{"rekognition_labels": [ { "Name": "Ground",
-    "Confidence": 99.99285888671875,
-    "Instances": [],
-    "Parents": [] },
-    { "Name": "Road",
-    "Confidence": 99.86767578125,
-    "Instances": [],
-    "Parents": [] },
-    { "Name": "Tarmac",
-    "Confidence": 80.00676727294922,
-    "Instances": [],
-    "Parents": [] } ]}',
+  '{
+  	"rekognition_labels": [{
+  			"Name": "Ground",
+  			"Confidence": 99.99285888671875,
+  			"Instances": [],
+  			"Parents": []
+  		},
+  		{
+  			"Name": "Road",
+  			"Confidence": 99.86767578125,
+  			"Instances": [],
+  			"Parents": []
+  		},
+  		{
+  			"Name": "Tarmac",
+  			"Confidence": 80.00676727294922,
+  			"Instances": [],
+  			"Parents": []
+  		}
+  	]
+  }',
   'Q995X4JVDBO3YZRRBJYI3SZQSNNSGBMU',
   '8JHZXG1RKTQEHW7DD1LV5A7MDII5S7M9BOX81UPCYSZ1RP1SZNYZD8BSI6Q0SQ1B',
   ST_GeomFromText('POINT(66.073186 4.225373)', 4326)
@@ -93,18 +117,27 @@ VALUES (
   '2011-07-01 06:30:30+05',
   '2011-07-01 06:30:30+05',
   '{"exif":156}',
-   '{"rekognition_labels": [ { "Name": "Ground",
-    "Confidence": 99.99285888671875,
-    "Instances": [],
-    "Parents": [] },
-    { "Name": "Road",
-    "Confidence": 99.86767578125,
-    "Instances": [],
-    "Parents": [] },
-    { "Name": "Tarmac",
-    "Confidence": 80.00676727294922,
-    "Instances": [],
-    "Parents": [] } ]}',
+  '{
+   	"rekognition_labels": [{
+   			"Name": "Ground",
+   			"Confidence": 99.99285888671875,
+   			"Instances": [],
+   			"Parents": []
+   		},
+   		{
+   			"Name": "Road",
+   			"Confidence": 99.86767578125,
+   			"Instances": [],
+   			"Parents": []
+   		},
+   		{
+   			"Name": "Tarmac",
+   			"Confidence": 80.00676727294922,
+   			"Instances": [],
+   			"Parents": []
+   		}
+   	]
+   }',
   'XUHPYPVJR6VKAWKB1KYAFVCB6R86LH4M',
   'AYZZJ4X8IGY9SC4YMBW9BXCCIJOHTRA2R61657SEJX0KCUXDPX3LSRDNDNVJXYY9',
   ST_GeomFromText('POINT(77.134780 4.835319)', 4326)
@@ -115,18 +148,27 @@ VALUES (
   '2011-07-01 06:30:30+05',
   '2011-07-01 06:30:30+05',
   '{"exif":987}',
-   '{"rekognition_labels": [ { "Name": "Ground",
-    "Confidence": 99.99285888671875,
-    "Instances": [],
-    "Parents": [] },
-    { "Name": "Road",
-    "Confidence": 99.86767578125,
-    "Instances": [],
-    "Parents": [] },
-    { "Name": "Tarmac",
-    "Confidence": 80.00676727294922,
-    "Instances": [],
-    "Parents": [] } ]}',
+  '{
+   	"rekognition_labels": [{
+   			"Name": "Ground",
+   			"Confidence": 99.99285888671875,
+   			"Instances": [],
+   			"Parents": []
+   		},
+   		{
+   			"Name": "Road",
+   			"Confidence": 99.86767578125,
+   			"Instances": [],
+   			"Parents": []
+   		},
+   		{
+   			"Name": "Tarmac",
+   			"Confidence": 80.00676727294922,
+   			"Instances": [],
+   			"Parents": []
+   		}
+   	]
+   }',
   '1GLRSXJDZOY5OAS8UB2GI4HWR3OTX3R8',
   'WLG9Z8V038T1JO5O0NCAYSB390T7WDV6Q4PGSWQJ1ZZ0C2OS6G5HOI4OPY4X93K9',
   ST_GeomFromText('POINT(37.717474 161.204097)', 4326)
