@@ -131,3 +131,5 @@ CREATE TABLE tba21.keyword_tags
 --Updates to schema
 ALTER TABLE tba21.s3uploads DROP COLUMN machine_recognition_tags RESTRICT;
 ALTER TABLE tba21.s3uploads ADD COLUMN machine_recognition_tags jsonb;
+ALTER TABLE tba21.keyword_tags ADD CONSTRAINT keyword_tag_name UNIQUE (tag_name);
+ALTER TABLE tba21.concept_tags ADD CONSTRAINT concept_tag_name UNIQUE (tag_name);
