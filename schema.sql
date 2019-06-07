@@ -35,7 +35,7 @@ CREATE TABLE tba21.types
 CREATE TABLE tba21.items
 (
 	ID bigserial PRIMARY KEY,
-	s3uploads_sha512 varchar(128) references tba21.s3uploads(ID_sha512),
+	s3uploads_sha512 varchar(128) references tba21.s3uploads(ID_sha512) ON DELETE CASCADE ON UPDATE CASCADE,
 	s3_key varchar(1024), --s3 key, if any, associated to this particular item
 	created_at timestamp with time zone NOT NULL,
 	updated_at timestamp with time zone NOT NULL,
@@ -109,8 +109,8 @@ CREATE INDEX collections_gix ON tba21.collections USING GIST (geom); -- collecti
 -- Collection items cross-references
 CREATE TABLE tba21.collections_items
 (
-	collection_ID bigint references tba21.collections(ID),
-	item_ID bigint references tba21.items(ID)
+	collection_ID bigint references tba21.collections(ID) ON DELETE CASCADE,
+	item_ID bigint references tba21.items(ID) ON DELETE CASCADE
 );
 
 --Concept tags metadata
