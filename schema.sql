@@ -11,18 +11,9 @@ CREATE EXTENSION postgis;
 --License
 CREATE TYPE tba21.licence_type AS ENUM ('CC BY', 'CC BY-SA', 'CC BY-ND', 'CC BY-NC', 'CC BY-NC-SA', 'CC BY-NC-ND', 'locked');
 
--- S3 objects metadata table
-CREATE TABLE tba21.s3uploads
-(
-	ID_sha512 char(128) PRIMARY KEY,
-	all_s3_keys varchar(1024)[] , --all keys go here, including any duplicates
-	created_at timestamp with time zone NOT NULL,
-	updated_at timestamp with time zone NOT NULL,
-    exif jsonb, -- for things that don't go into other columns
-	machine_recognition_tags varchar[],
-	md5 char(32),
-	image_hash char(64)
-);
+
+
+
 
 --Types metadata
 CREATE TABLE tba21.types
@@ -34,9 +25,12 @@ CREATE TABLE tba21.types
 -- Items metadata table
 CREATE TABLE tba21.items
 (
-	ID bigserial PRIMARY KEY,
-	s3uploads_sha512 varchar(128) references tba21.s3uploads(ID_sha512) ON DELETE CASCADE ON UPDATE CASCADE,
-	s3_key varchar(1024), --s3 key, if any, associated to this particular item
+	s3_key varchar(1024) PRIMARY KEY NOT NULL , 
+	sha512 char(128),
+    exif jsonb, -- for things that don't go into other columns
+	machine_recognition_tags jsonb,
+	md5 char(32),
+	image_hash char(64),
 	created_at timestamp with time zone NOT NULL,
 	updated_at timestamp with time zone NOT NULL,
 	time_produced timestamp with time zone,
@@ -97,9 +91,6 @@ CREATE TABLE tba21.collections
 
 -- Geo stuff
 
-SELECT AddGeometryColumn ('tba21','s3uploads','location',4326,'POINT',2); -- s3uploads location column
-CREATE INDEX s3uploads_gix ON tba21.s3uploads USING GIST (location); -- s3uploads location GIST index
-
 SELECT AddGeometryColumn ('tba21','items','location',4326,'POINT',2); -- items location column
 CREATE INDEX items_gix ON tba21.items USING GIST (location); -- items location GIST index
 
@@ -110,7 +101,7 @@ CREATE INDEX collections_gix ON tba21.collections USING GIST (geom); -- collecti
 CREATE TABLE tba21.collections_items
 (
 	collection_ID bigint references tba21.collections(ID) ON DELETE CASCADE,
-	item_ID bigint references tba21.items(ID) ON DELETE CASCADE
+	item_s3_key varchar(1024) references tba21.items(s3_key) ON DELETE CASCADE
 );
 
 --Concept tags metadata
@@ -129,7 +120,5 @@ CREATE TABLE tba21.keyword_tags
 
 
 --Updates to schema
-ALTER TABLE tba21.s3uploads DROP COLUMN machine_recognition_tags RESTRICT;
-ALTER TABLE tba21.s3uploads ADD COLUMN machine_recognition_tags jsonb;
 ALTER TABLE tba21.keyword_tags ADD CONSTRAINT keyword_tag_name UNIQUE (tag_name);
 ALTER TABLE tba21.concept_tags ADD CONSTRAINT concept_tag_name UNIQUE (tag_name);
