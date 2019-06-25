@@ -11,10 +11,6 @@ CREATE EXTENSION postgis;
 --License
 CREATE TYPE tba21.licence_type AS ENUM ('CC BY', 'CC BY-SA', 'CC BY-ND', 'CC BY-NC', 'CC BY-NC-SA', 'CC BY-NC-ND', 'locked');
 
-
-
-
-
 --Types metadata
 CREATE TABLE tba21.types
 (
@@ -122,3 +118,5 @@ CREATE TABLE tba21.keyword_tags
 --Updates to schema
 ALTER TABLE tba21.keyword_tags ADD CONSTRAINT keyword_tag_name UNIQUE (tag_name);
 ALTER TABLE tba21.concept_tags ADD CONSTRAINT concept_tag_name UNIQUE (tag_name);
+ALTER TABLE tba21.types ADD CONSTRAINT type_name UNIQUE (type_name);
+
