@@ -1,6 +1,5 @@
 -- START FIRST QUERY tba21.collections
 INSERT INTO tba21.collections(
-  s3_prefix,
   created_at,
   updated_at,
   time_produced,
@@ -27,7 +26,6 @@ INSERT INTO tba21.collections(
   geom
 )
 VALUES (
-  'my-test-path/',
   '2011-07-01 06:30:30+05',
   '2011-07-01 06:30:30+05',
   '2011-07-01 06:30:30+05',
@@ -78,7 +76,6 @@ VALUES (
   'Description of Detonation. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi non eros pulvinar tortor auctor tincidunt congue quis sem. Donec id sem non neque tincidunt mollis ac sed nulla.',
   ST_GeomFromText('LINESTRING(-71.160281 42.258729,-71.160837 42.259113,-71.161144 42.25932)', 4326)
 ), (
-  'my-test-path/',
   '2011-07-01 06:30:30+05',
   '2011-07-01 06:30:30+05',
   '2011-07-01 06:30:30+05',
@@ -104,7 +101,6 @@ VALUES (
   'Quantum Aspects of Life. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi non eros pulvinar tortor auctor tincidunt congue quis sem. Donec id sem non neque tincidunt mollis ac sed nulla.',
   ST_GeomFromText('LINESTRING(-71.160281 42.258729,-71.160837 42.259113,-71.161144 42.25932)', 4326)
 ),(
-  'my-test-path/',
   '2011-07-01 06:30:30+05',
   '2011-07-01 06:30:30+05',
   '2011-07-01 06:30:30+05',

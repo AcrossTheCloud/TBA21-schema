@@ -21,7 +21,7 @@ CREATE TABLE tba21.types
 -- Items metadata table
 CREATE TABLE tba21.items
 (
-	s3_key varchar(1024) PRIMARY KEY NOT NULL , 
+	s3_key varchar(1024) PRIMARY KEY NOT NULL ,
 	sha512 char(128),
     exif jsonb, -- for things that don't go into other columns
 	machine_recognition_tags jsonb,
@@ -59,7 +59,6 @@ CREATE TABLE tba21.items
 CREATE TABLE tba21.collections
 (
 	ID bigserial PRIMARY KEY,
-	s3_prefix varchar(1024),
 	created_at timestamp with time zone NOT NULL,
 	updated_at timestamp with time zone NOT NULL,
 	time_produced timestamp with time zone,
